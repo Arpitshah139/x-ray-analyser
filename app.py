@@ -42,10 +42,10 @@ validation_data = pd.DataFrame(validation_data, columns=columns)
 # train_data.to_csv("datasets/train.csv")
 # test_data.to_csv("datasets/test.csv")
 # validation_data.to_csv("datasets/validation.csv")
-os.remove("datasets/train.npy")
-os.remove("datasets/test.npy")
-os.remove("datasets/validation.npy")
-os.remove("pretrained_model/brucechou1983_CheXNet_Keras_0.3.0_weights.h5")
+# os.remove("datasets/train.npy")
+# os.remove("datasets/test.npy")
+# os.remove("datasets/validation.npy")
+# os.remove("pretrained_model/brucechou1983_CheXNet_Keras_0.3.0_weights.h5")
 
 training_img_features = np.vstack(train_data.image_features).astype(np.float)
 validation_img_features = np.vstack(validation_data.image_features).astype(np.float)
@@ -256,7 +256,7 @@ Attention_model.fit(training_dataset, validation_data=validation_dataset, epochs
 
 Attention_model.load_weights(r"datasets/Attention_model_final.h5")
 
-os.remove("datasets/Attention_model_final.h5")
+# os.remove("datasets/Attention_model_final.h5")
 
 def load_image_to_chexnet(img):
     image = Image.open(img)
