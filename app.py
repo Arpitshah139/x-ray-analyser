@@ -27,7 +27,7 @@ pretrained_img_model = DenseNet121(
     weights=r'pretrained_model/brucechou1983_CheXNet_Keras_0.3.0_weights.h5',
     classes=14, input_shape=(256, 256, 3))
 model = Model(pretrained_img_model.input, pretrained_img_model.layers[-2].output)
-model.save("CheXNet")
+# model.save("CheXNet")
 
 train_data = np.load(r"datasets/train.npy", allow_pickle=True)
 test_data = np.load(r"datasets/test.npy", allow_pickle=True)
@@ -42,6 +42,11 @@ validation_data = pd.DataFrame(validation_data, columns=columns)
 # train_data.to_csv("datasets/train.csv")
 # test_data.to_csv("datasets/test.csv")
 # validation_data.to_csv("datasets/validation.csv")
+os.remove("train.npy")
+os.remove("test.npy")
+os.remove("validation.npy")
+os.remove("pretrained_model/brucechou1983_CheXNet_Keras_0.3.0_weights.h5")
+
 
 training_img_features = np.vstack(train_data.image_features).astype(np.float)
 validation_img_features = np.vstack(validation_data.image_features).astype(np.float)
