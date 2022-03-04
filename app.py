@@ -86,6 +86,9 @@ validation_dataset = tf.data.Dataset.from_tensor_slices(
 validation_dataset = validation_dataset.shuffle(Buffer_size).batch(batch_size).prefetch(
     buffer_size=tf.data.experimental.AUTOTUNE)
 
+del train_data
+del test_data
+del validation_data
 
 class Encoder_layer_stack(tf.keras.Model):
 
@@ -253,6 +256,7 @@ Attention_model.fit(training_dataset, validation_data=validation_dataset, epochs
 
 Attention_model.load_weights(r"datasets/Attention_model_final.h5")
 
+os.remove(datasets/Attention_model_final.h5)
 
 def load_image_to_chexnet(img):
     image = Image.open(img)
