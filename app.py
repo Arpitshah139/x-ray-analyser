@@ -256,7 +256,7 @@ Attention_model.fit(training_dataset, validation_data=validation_dataset, epochs
 
 Attention_model.load_weights(r"datasets/Attention_model_final.h5")
 
-os.remove(datasets/Attention_model_final.h5)
+os.remove("datasets/Attention_model_final.h5")
 
 def load_image_to_chexnet(img):
     image = Image.open(img)
