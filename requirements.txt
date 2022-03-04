@@ -31,7 +31,6 @@ Markdown==3.3.6
 MarkupSafe==2.1.0
 matplotlib==3.5.1
 networkx==2.6.3
-nltk==3.7
 numpy==1.22.2
 oauthlib==3.2.0
 opencv-python==4.5.5.62
